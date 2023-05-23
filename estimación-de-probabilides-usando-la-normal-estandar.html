@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 6 Estimación de probabilides usando la normal estandar | Una introducción a la Estadística</title>
+<meta name="author" content="Jairo Rueda-Restrepo">
+<meta name="description" content="Teorema Si \(X\) es una v.a. que tiene media y varianza finita, \(E(x)=\mu\) y \(Var(x)=\sigma^2\) Cuando se hace \[Y = \frac{x-E(x)}{\sqrt{Var(x)}}\] Entonces, \(Y\) tendrá \(E(x)= \mu = 0\) y...">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="Capítulo 6 Estimación de probabilides usando la normal estandar | Una introducción a la Estadística">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Teorema Si \(X\) es una v.a. que tiene media y varianza finita, \(E(x)=\mu\) y \(Var(x)=\sigma^2\) Cuando se hace \[Y = \frac{x-E(x)}{\sqrt{Var(x)}}\] Entonces, \(Y\) tendrá \(E(x)= \mu = 0\) y...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 6 Estimación de probabilides usando la normal estandar | Una introducción a la Estadística">
+<meta name="twitter:description" content="Teorema Si \(X\) es una v.a. que tiene media y varianza finita, \(E(x)=\mu\) y \(Var(x)=\sigma^2\) Cuando se hace \[Y = \frac{x-E(x)}{\sqrt{Var(x)}}\] Entonces, \(Y\) tendrá \(E(x)= \mu = 0\) y...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Una introducción a la Estadística</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Distribución Normal</a></li>
+<li><a class="" href="caracter%C3%ADsticas-de-la-distribuci%C3%B3n.html"><span class="header-section-number">2</span> Características de la Distribución</a></li>
+<li><a class="" href="estimaci%C3%B3n-de-probabilidades.html"><span class="header-section-number">3</span> Estimación de probabilidades</a></li>
+<li><a class="" href="otras-probabilidades-en-la-normal-est%C3%A1ndar.html"><span class="header-section-number">4</span> Otras probabilidades en la normal estándar</a></li>
+<li><a class="" href="la-funci%C3%B3n-probit.html"><span class="header-section-number">5</span> La función PROBIT</a></li>
+<li><a class="active" href="estimaci%C3%B3n-de-probabilides-usando-la-normal-estandar.html"><span class="header-section-number">6</span> Estimación de probabilides usando la normal estandar</a></li>
+<li><a class="" href="ejercicios.html"><span class="header-section-number">7</span> Ejercicios</a></li>
+<li><a class="" href="TLC.html"><span class="header-section-number">8</span> Teorema del Límite Central</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="estimación-de-probabilides-usando-la-normal-estandar" class="section level1" number="6">
+<h1>
+<span class="header-section-number">Capítulo 6</span> Estimación de probabilides usando la normal estandar<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-de-probabilides-usando-la-normal-estandar"><i class="fas fa-link"></i></a>
+</h1>
+<div id="teorema" class="section level2 unnumbered">
+<h2>
+<em>Teorema</em><a class="anchor" aria-label="anchor" href="#teorema"><i class="fas fa-link"></i></a>
+</h2>
+<p>Si <span class="math inline">\(X\)</span> es una v.a. que tiene media y varianza finita, <span class="math inline">\(E(x)=\mu\)</span> y <span class="math inline">\(Var(x)=\sigma^2\)</span></p>
+<p>Cuando se hace</p>
+<p><span class="math display">\[Y = \frac{x-E(x)}{\sqrt{Var(x)}}\]</span></p>
+<p>Entonces, <span class="math inline">\(Y\)</span> tendrá <span class="math inline">\(E(x)= \mu = 0\)</span> y <span class="math inline">\(Var(x)=\sigma^2 = 1\)</span></p>
+<p>Se dice que <span class="math inline">\(X\)</span> ha sido <strong>Estandarizada</strong> y la nueva variable tendrá media <strong>cero</strong> y <strong>varianza = 1</strong>.</p>
+<p>Si <span class="math inline">\(X\)</span> es normal o aproximadamente normal,
+<span class="math display">\[Y \,\ \tilde \,\ \eta \ (\mu= 0; \sigma^2 = 1)\]</span></p>
+<p><strong>________________________________________________________</strong></p>
+<p>Con esto, se pueden estimar probabilidades para variables aleatorias normales (o aproximadamente normales) de la siguiente forma:</p>
+<p>Si <span class="math inline">\(X\)</span> es una v.a. con <span class="math inline">\(E(x)=\mu\)</span> y <span class="math inline">\(Var(x)=\sigma^2\)</span></p>
+<p><span class="math display">\[P(a&lt;x&lt;b)=\]</span></p>
+<p><span class="math display">\[P(\frac{a-\mu}{\sigma}&lt;\frac{x-\mu}{\sigma}&lt;\frac{b-\mu}{\sigma})=\]</span></p>
+<p>Haciendo</p>
+<p><span class="math display">\[z_a=\frac{a-\mu}{\sigma}\]</span> y</p>
+<p><span class="math display">\[z_b=\frac{b-\mu}{\sigma}\]</span></p>
+<p>se tiene que:</p>
+<p><span class="math display">\[P(a&lt;x&lt;b)= P\ (\ z_a &lt; Z&lt; z_b \,)\]</span></p>
+<p><strong>_________________________________________________________________</strong></p>
+<p><strong>Ejemplo</strong></p>
+<p>Suponga que <span class="math inline">\(X \,\ \tilde \,\ \eta \ (\mu= 110; \sigma^2 = 25)\)</span>. Estime la probabilidad</p>
+<p><span class="math display">\[P(100&lt;x&lt;115)=\]</span></p>
+<p><span class="math display">\[P(\frac{100-110}{5}&lt;\frac{x-110}{5}&lt;\frac{115-110}{5})=\]</span></p>
+<p><span class="math display">\[P(100&lt;x&lt;115)= P\ (-2 &lt; Z &lt; 1) = 0.8413447-0.0227501=0.8185946 \]</span>
+<img src="05-Estimacion-de-Probabilidades-2_files/figure-html/calc2-1.png" width="672"></p>
+<p><strong>_________________________________________________________________</strong></p>
+<p><strong>Ejemplo</strong></p>
+<p>Estime el percentil 5, el 85 y el percentil 99 de la v.a. <span class="math inline">\(X\)</span>.</p>
+<p><strong>El percentil 5: </strong></p>
+<p>Al estandarizar la v.a. <span class="math inline">\(X\)</span> necesitamos encontrar un valor tal que <span class="math inline">\(-1.64485=\frac{P_5-110}{5}\)</span> ya que <span class="math inline">\(P(Z&lt;-1.64485)=0.05\)</span></p>
+<p>Por tanto, <span class="math inline">\(P_5=101.7758\)</span></p>
+<div class="inline-figure"><img src="05-Estimacion-de-Probabilidades-2_files/figure-html/g9-1.png" width="672"></div>
+<p><strong>El percentil 85:</strong></p>
+<p>Al estandarizar la v.a. <span class="math inline">\(X\)</span> necesitamos encontrar un valor tal que <span class="math inline">\(1.036433=\frac{P_{85}-110}{5}\)</span> ya que <span class="math inline">\(P(Z&lt;1.036433)=0.85\)</span></p>
+<p>Por tanto, <span class="math inline">\(P_{85}=115.1822\)</span></p>
+<div class="inline-figure"><img src="05-Estimacion-de-Probabilidades-2_files/figure-html/g10-1.png" width="672"></div>
+<p><strong>El percentil 99:</strong></p>
+<p>Al estandarizar la v.a. <span class="math inline">\(X\)</span> necesitamos encontrar un valor tal que <span class="math inline">\(2.236348=\frac{P_{99}-110}{5}\)</span> ya que <span class="math inline">\(P(Z&lt;2.326348)=0.99\)</span></p>
+<p>Por tanto, <span class="math inline">\(P_{99}=121.6317\)</span></p>
+<p><img src="05-Estimacion-de-Probabilidades-2_files/figure-html/g11-1.png" width="672"><strong>____________________________________________________________</strong></p>
+<p><strong>Ejemplo</strong></p>
+<p>Asuma que el tiempo promedio de permanencia de cierta especie en un vivero, antes de estar listas para establecer en campo, es de 60 días, con una desviación estándar de 15.</p>
+<p>¿Cuál es la probabilidad de que una plantula esté lista para salir en 50 días o menos?</p>
+<p><strong>Respuesta</strong></p>
+<p>Si X es la v.a. que cuenta el tiempo medio de permanencia de la plantula en el vivero <span class="math display">\[X \,\ \tilde \,\ \eta \ (\mu= 60; \sigma^2 = 15^2) \]</span></p>
+<p>Entonces, <span class="math inline">\(P(X&lt;50)= P(\frac{X-60}{15}&lt;\frac{50-60}{15})=P(Z&lt;-0.666667)\)</span></p>
+<p><span class="math display">\[P(X&lt;50)=0.2524926\]</span>
+<img src="05-Estimacion-de-Probabilidades-2_files/figure-html/g12-1.png" width="672"><strong>____________________________________________________________________</strong></p>
+</div>
+<div id="la-probabilidad-como-proporción" class="section level2 unnumbered">
+<h2>La probabilidad como proporción<a class="anchor" aria-label="anchor" href="#la-probabilidad-como-proporci%C3%B3n"><i class="fas fa-link"></i></a>
+</h2>
+<p>Suponga que vivero tiene actualmente un lote de 10000 plantulas.</p>
+<p>¿Cuántas de éstas se espera que tarden más de 75 días en salir?</p>
+<p><strong>Respuesta</strong></p>
+<p><span class="math inline">\(P(X &gt;75)= P(\frac{X-60}{15}&lt;\frac{75-60}{15})=P(Z &gt; 1)\)</span></p>
+<p><span class="math display">\[P(X&gt;75)=1-P(X&lt;75)= 1-0.8413447= 0.1586553\]</span>
+Por lo tanto, se espera que, aproximadamente <span class="math inline">\(n=10000*0.1586553=1586\)</span> plantulas tandarán más de 75 días en estar listas para establecimiento.</p>
+<div class="inline-figure"><img src="05-Estimacion-de-Probabilidades-2_files/figure-html/g13-1.png" width="672"></div>
+<p><strong>__________________________________________________________________</strong></p>
+<p>Si para este lote de 10000, una empresa ofrece comprar todas las que estén listas entes de 35 días ¿Cuántas plantulas se espera vender?</p>
+<p><strong>Respuesta</strong></p>
+<p><span class="math inline">\(P(X &lt; 35)= P(\frac{X-60}{15}&lt;\frac{35-60}{15})=P(Z &gt; -1.666666)\)</span></p>
+<p><span class="math display">\[P(X &lt; 35)= 0.04779036\]</span>
+De esto, se espera vender <span class="math inline">\(n= 10000*0.04779036=477\)</span> plantulas.</p>
+<div class="inline-figure"><img src="05-Estimacion-de-Probabilidades-2_files/figure-html/g14-1.png" width="672"></div>
+<p><strong>______________________________________________________________</strong></p>
+<p>Suponga que el vivero inicia la produccuón de un lote de 15000 plantulas.</p>
+<p>Si una finca solicita 9000 plantulas ¿Cuanto tiempo debería solicitar el vivero para cumplir con la entrega?</p>
+<p><strong>Respuesta</strong></p>
+<p>Como 9000 plantulas represnta el 60% de la producción, entonces se debe estimar el tiempo tal que <span class="math inline">\(P(X &lt; tiempo)= 0.6\)</span>.</p>
+<p>Con esto, existe un valor de <span class="math inline">\(tiempo\)</span> tal que <span class="math inline">\(P(Z &lt; \frac{tiempo-60}{15})= 0.6\)</span></p>
+<p><span class="math display">\[Probit(0.6)=0.2533471\]</span>
+Por tanto,</p>
+<p><span class="math display">\[\frac{tiempo-60}{15}=0.2533471\]</span>
+<span class="math display">\[tiempo=60+0.2533471*15=63.8\]</span>
+El vivero debería pidir 64 días de plazo para completar la entrega.</p>
+<div class="inline-figure"><img src="05-Estimacion-de-Probabilidades-2_files/figure-html/g15-1.png" width="672"></div>
+<p><strong>_________________________________________________________________</strong></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="la-funci%C3%B3n-probit.html"><span class="header-section-number">5</span> La función PROBIT</a></div>
+<div class="next"><a href="ejercicios.html"><span class="header-section-number">7</span> Ejercicios</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#estimaci%C3%B3n-de-probabilides-usando-la-normal-estandar"><span class="header-section-number">6</span> Estimación de probabilides usando la normal estandar</a></li>
+<li><a class="nav-link" href="#teorema">Teorema</a></li>
+<li><a class="nav-link" href="#la-probabilidad-como-proporci%C3%B3n">La probabilidad como proporción</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Una introducción a la Estadística</strong>" was written by Jairo Rueda-Restrepo. It was last built on 2023-05-23.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
